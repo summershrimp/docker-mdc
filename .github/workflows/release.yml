@@ -36,7 +36,7 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
-        username: vergilgao
+        username: summershrimp
         password: ${{ secrets.GHCR_TOKEN }}
 
     - name: Build and push
@@ -48,26 +48,26 @@ jobs:
         platforms: linux/amd64,linux/arm64
         push: true
         tags: |
-          vergilgao/mdc:${{ env.MAJOR_VERSION }}
-          vergilgao/mdc:${{ env.MINOR_VERSION }}
-          vergilgao/mdc:${{ env.BUILD_VERSION }}
-          vergilgao/mdc:${{ env.TAG_VERSION }}
-          vergilgao/mdc:latest
-          ghcr.io/vergilgao/mdc:${{ env.MAJOR_VERSION }}
-          ghcr.io/vergilgao/mdc:${{ env.MINOR_VERSION }}
-          ghcr.io/vergilgao/mdc:${{ env.BUILD_VERSION }}
-          ghcr.io/vergilgao/mdc:${{ env.TAG_VERSION }}
-          ghcr.io/vergilgao/mdc:latest
-          vergilgao/avdc:${{ env.MAJOR_VERSION }}
-          vergilgao/avdc:${{ env.MINOR_VERSION }}
-          vergilgao/avdc:${{ env.BUILD_VERSION }}
-          vergilgao/avdc:${{ env.TAG_VERSION }}
-          vergilgao/avdc:latest
+          summershrimp/mdc:${{ env.MAJOR_VERSION }}
+          summershrimp/mdc:${{ env.MINOR_VERSION }}
+          summershrimp/mdc:${{ env.BUILD_VERSION }}
+          summershrimp/mdc:${{ env.TAG_VERSION }}
+          summershrimp/mdc:latest
+          ghcr.io/summershrimp/mdc:${{ env.MAJOR_VERSION }}
+          ghcr.io/summershrimp/mdc:${{ env.MINOR_VERSION }}
+          ghcr.io/summershrimp/mdc:${{ env.BUILD_VERSION }}
+          ghcr.io/summershrimp/mdc:${{ env.TAG_VERSION }}
+          ghcr.io/summershrimp/mdc:latest
+          summershrimp/avdc:${{ env.MAJOR_VERSION }}
+          summershrimp/avdc:${{ env.MINOR_VERSION }}
+          summershrimp/avdc:${{ env.BUILD_VERSION }}
+          summershrimp/avdc:${{ env.TAG_VERSION }}
+          summershrimp/avdc:latest
         build-args: |
           VERSION=${{ env.BUILD_VERSION }}
           BUILD_DATE=${{ env.BUILD_DATE }}
-        cache-from: type=registry,ref=ghcr.io/vergilgao/mdc:buildcache
-        cache-to: type=registry,ref=ghcr.io/vergilgao/mdc:buildcache,mode=max
+        cache-from: type=registry,ref=ghcr.io/summershrimp/mdc:buildcache
+        cache-to: type=registry,ref=ghcr.io/summershrimp/mdc:buildcache,mode=max
     
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}    
